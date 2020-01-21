@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 0.12.0"
+}
+
 # A DigitalOcean personal access token
 variable "do_token" {
   description = "Your DigitalOcean personal access token"
