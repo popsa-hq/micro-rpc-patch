@@ -1,6 +1,11 @@
-variable "kube_namespace" {
+variable "control_namespace" {
   description = "Control plane Namespace"
   default     = "control"
+}
+
+variable "resource_namespace" {
+  description = "Shared resources kubernetes namespace"
+  default     = "resource"
 }
 
 variable "replicas" {

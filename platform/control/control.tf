@@ -1,6 +1,6 @@
 resource "kubernetes_namespace" "control" {
   metadata {
-    name = var.kube_namespace
+    name = var.control_namespace
   }
 }
 
@@ -17,8 +17,8 @@ locals {
   common_env_vars = {
     "MICRO_LOG_LEVEL"        = "DEBUG"
     "MICRO_BROKER"           = "nats"
-    "MICRO_BROKER_ADDRESS"   = "nats-cluster"
+    "MICRO_BROKER_ADDRESS"   = "nats-cluster.${var.resource_namespace}"
     "MICRO_REGISTRY"         = "etcd"
-    "MICRO_REGISTRY_ADDRESS" = "etcd-cluster-client"
+    "MICRO_REGISTRY_ADDRESS" = "etcd-cluster-client.${var.resource_namespace}"
   }
 }
