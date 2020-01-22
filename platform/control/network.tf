@@ -80,13 +80,13 @@ resource "kubernetes_service" "network" {
     labels    = merge(local.common_labels, { "name" = "micro-network" })
   }
   spec {
-    type = "NodePort"
+    type     = "NodePort"
     selector = merge(local.common_labels, { "name" = "micro-network" })
     port {
-      name = "network"
-      port = 8085
+      name      = "network"
+      port      = 8085
       node_port = 30038
-      protocol = "UDP"
+      protocol  = "UDP"
     }
   }
 }
@@ -98,11 +98,11 @@ resource "kubernetes_service" "gateway" {
     labels    = merge(local.common_labels, { "name" = "micro-gateway" })
   }
   spec {
-    type = "ClusterIP"
+    type     = "ClusterIP"
     selector = merge(local.common_labels, { "name" = "micro-network" })
     port {
-      name = "service"
-      port = 8080
+      name     = "service"
+      port     = 8080
       protocol = "TCP"
     }
   }
